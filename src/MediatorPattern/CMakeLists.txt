@@ -1,0 +1,12 @@
+PROJECT(example) #项目名称
+#Cmake最低版本要求
+CMAKE_MINIMUM_REQUIRED(VERSION 2.6) 
+
+set(CMAKE_BUILD_TYPE "DEBUG")
+set(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g -ggdb")
+set(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")
+set(CMAKE_CXX_FLAGS "-std=c++11 ${CMAKE_CXX_FLAGS}")
+
+aux_source_directory(. SOURCEFILES)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../bin/)
+add_executable(example ${SOURCEFILES}) 
